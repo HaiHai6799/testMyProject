@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.containButton{
+			border: 1px solid #ccc;
+			overflow: auto;
+			background-color: #f1f1f1;
+		}
+		.containButton button{
+			box-sizing: border-box;
+			float: left;
+			width: 20%;
+			height: 50px;
+			display: block;
+			border: none;
+			text-align: center;
+			color: black;
+			
+			transition: 0.3s;
+			cursor: pointer;
+		}
+		.containButton button:hover{
+			background-color: gray;
+		}
+		.containButton button.active{
+			background-color: green;
+		}
+		.contents{
+			box-sizing: border-box;
+			width: 100%;
+			padding: 15px 15px 15px 15px;
+			height: 100px;
+			display: none;
+			background-color: white;
+			border: 1px solid #ccc;
+			border-top: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="containButton">
+		<button type="button" onclick="myButton(event,'London')" class="links" id="defaultOpen">London</button>
+		<button type="button" onclick="myButton(event,'Paris')" class="links">Paris</button>
+		<button type="button" onclick="myButton(event,'Tokyo')" class="links">Tokyo</button>
+	</div>
+
+	<div class="contents" id="London">
+		<h3>London</h3>
+		<p>London is a capital city of England</p>
+	</div>
+	<div class="contents" id="Paris">
+		<h3>Paris</h3>
+		<p>Paris is a capital city of Frence</p>
+	</div>
+	<div class="contents" id="Tokyo">
+		<h3>Tokyo</h3>
+		<p>Tokyo is a capital city of Japan</p>
+	</div>
+	<script type="text/javascript">
+		function myButton(event, cityName){
+			var i, links, contents;
+
+			links = document.getElementsByClassName("links");
+			for( i = 0 ; i < links.length ; i++){
+				links[i].className = links[i].className.replace(" active","");
+			}
+
+			contents = document.getElementsByClassName("contents");
+			for( i = 0 ; i < contents.length ; i++){
+				contents[i].style.display = "none";
+			}
+
+			document.getElementById(cityName).style.display = "block";
+			event.currentTarget.className += " active";
+
+		}
+		document.getElementById("defaultOpen").click();
+	</script>
+</body>
+</html>

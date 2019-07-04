@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style type="text/css">
+			.container{
+				width: 100%;
+				border:none;
+				overflow: auto;
+				background-color: gray;
+			}
+			.container a{
+				display: block;
+				float: left;
+				width: 150px;
+				height: 50px;
+				text-align: center;
+				padding: 15px 15px;
+				font-size: 36px;
+				color: white;
+				transition: all 0.3 ease;
+				text-decoration: none;
+			}
+			.container a:hover{
+				background-color: black;
+			}
+			.container a.active{
+				background-color: green;
+			}
+			.tabcontents{
+				display: none;
+			}
+		</style>
+
+</head>
+<body>
+	<div class="container">
+	<a href="#" ><i class="fa fa-home"></i></a>
+	<a href="#HTML" class="tablinks" onclick="openSubject(event,'HTML')">HTML</a>
+	<a href="#CSS" class="tablinks" onclick="openSubject(event,'CSS')">CSS</a>
+	<a href="#JavaScript" class="tablinks" onclick="openSubject(event,'JavaScript')">JavaScript</a>
+	</div>
+	<div id="HTML" class="tabcontents">
+		<h3>About HTML</h3>
+		<p>HTML content</p>
+	</div>
+	<div id="CSS" class="tabcontents">
+		<h3>About CSS</h3>
+		<p>CSS content</p>
+	</div>
+	<div id="JavaScript" class="tabcontents">
+		<h3>About JavaScript</h3>
+		<p>JavaScript content</p>
+	</div>
+	<script type="text/javascript">
+		function openSubject(evt, subjectName){
+			var tablinks, tabcontents, i;
+
+			tabcontents = document.getElementsByClassName("tabcontents");
+			for(i = 0 ; i < tabcontents.length; i++){
+				tabcontents[i].style.display = "none";
+			}
+
+			tablinks = document.getElementsByClassName("tablinks");
+			for(i = 0; i < tabcontents.length; i++){
+				tablinks[i].className = tablinks[i].className.replace(" active","");
+			}
+
+			document.getElementById(subjectName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+	</script>
+</body>
+</html>

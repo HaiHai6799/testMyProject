@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.containerButton{
+			border:none;
+			overflow: auto;
+			width: 60%;
+			background-color: gray;
+		}
+		.containerButton button{
+			width: 15%;
+			float: left;
+			padding: 12px 0;
+			outline: none;
+			font-size: 36px;
+			color: white;
+			transition: all 0.3 ease;
+			display: block;
+			text-align: center;
+		}
+		.containerButton button:hover{
+			background-color: red;
+		}
+		.containerButton button.active{
+			background-color: green;
+		}
+		.tabcontent{
+			display: none;
+		}
+	</style>
+		<script type="text/javascript">
+		function clickButton(event, cityName){
+			var tablinks, tabcontent, i;
+
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for(i =0; i < tabcontent.length; i++){
+				tabcontent[i].style.display = "none";
+			}
+
+			tablinks = document.getElementsByClassName("tablinks");
+			for(i =0; i < tablinks.length; i++){
+				tablinks[i].className = tablinks[i].className.replace(" active","");
+			}
+
+			document.getElementById(cityName).style.display = "block";
+			event.currentTarget.className += " active";
+
+
+}
+	</script>
+</head>
+<body>
+	<div class="containerButton">
+	<button class="tablinks" type="button" onclick="clickButton(event,'London')">London</button>
+	<button class="tablinks" type="button" onclick="clickButton(event,'Paris')">Paris</button>
+	<button class="tablinks" type="button" onclick="clickButton(event,'Japan')">Japan</button>
+</div>
+	<div class="tabcontent" id="London">
+		<h3>London</h3>
+		<p>London is the capital of England</p>
+	</div>
+	<div class="tabcontent" id="Paris">
+		<h3>Paris</h3>
+		<p>Paris is the capital of France</p>
+	</div>
+	<div class="tabcontent" id="Japan">
+		<h3>Japan</h3>
+		<p>Japan is the capital of Tokyo</p>
+	</div>
+
+</body>
+</html>
